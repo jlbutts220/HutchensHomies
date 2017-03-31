@@ -153,7 +153,7 @@ public class TestSuite {
 	}
 	
 	/**
-	* Tests that the coordinates of the start of a line change correctly when the line is moved
+	* Tests that text in the class box can be changed to empty strings i.e. that the text can be deleted
 	*
 	*@Author Matt Hahn, Matt Rumpf, Jess Butts, Mike Dwyer, Jamie Thorpe
 	*/
@@ -166,13 +166,13 @@ public class TestSuite {
 	        @Override
 	        public void run() {
 	    		
-	    		assertEquals("Line starts at (0,0,1,1) start X is at 0", 0, newline.startX);
-	    		assertEquals("Line starts at (0,0,1,1) start Y is at 0", 0, newline.startY);
+	    		assertEquals("Line starts at (0,0,1,1) start X is at 0", 0, newline.startX, 0);
+	    		assertEquals("Line starts at (0,0,1,1) start Y is at 0", 0, newline.startY, 0);
 	    		
 	    		newline.redrawStart(5, 5);
 	    		
-	    		assertEquals("Line now at (5,5,1,1) start X is at 5", 0, newline.startX);
-	    		assertEquals("Line now at (5,5,1,1) start Y is at 5", 0, newline.startY);
+	    		assertEquals("Line now at (5,5,1,1) start X is at 5", 0, newline.startX, 0);
+	    		assertEquals("Line now at (5,5,1,1) start Y is at 5", 0, newline.startY, 0);
 	    		
 	        }
 	   });
@@ -180,7 +180,7 @@ public class TestSuite {
 	}
 	
 	/**
-	* Tests that the coordinates of the end of a line change correctly when the line is moved
+	* Tests that text in the class box can be changed to empty strings i.e. that the text can be deleted
 	*
 	*@Author Matt Hahn, Matt Rumpf, Jess Butts, Mike Dwyer, Jamie Thorpe
 	*/
@@ -193,13 +193,13 @@ public class TestSuite {
 	        @Override
 	        public void run() {
 	    		
-	    		assertEquals("Line starts at (0,0,1,1) end X is at 1", 1, newline.endX);
-	    		assertEquals("Line starts at (0,0,1,1) end Y is at 1", 1, newline.endY);
+	        	assertEquals("Line starts at (0,0,1,1) end X is at 1", 1, newline.endX, 0);
+	    		assertEquals("Line starts at (0,0,1,1) end Y is at 1", 1, newline.endY, 0);
 	    		
 	    		newline.redrawEnd(5, 5);
 	    		
-	    		assertEquals("Line now at (0,0,6,6) end X is at 6", 6, newline.endX);
-	    		assertEquals("Line now at (0,0,6,6) end Y is at 6", 6, newline.endY);
+	    		assertEquals("Line now at (0,0,6,6) end X is at 6", 6, newline.endX, 0);
+	    		assertEquals("Line now at (0,0,6,6) end Y is at 6", 6, newline.endY, 0);
 	    		
 	        }
 	   });
