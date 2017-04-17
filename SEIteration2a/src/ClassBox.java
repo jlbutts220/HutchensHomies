@@ -11,6 +11,7 @@
  * @author Matt Hahn, Matt Rumpf, Jess Butts, Mike Dwyer, Jamie Thorpe
  */
 
+import java.awt.TextArea;
 import java.util.ArrayList;
 
 import javafx.event.EventHandler;
@@ -18,7 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 
 public class ClassBox {
    
@@ -39,6 +40,7 @@ public class ClassBox {
 	Rectangle baseRec;
     	Line sep1;
     	Line sep2;
+    	
 	Text t1 = new Text("a");
 	Text t2 = new Text("b");
 	Text t3 = new Text("c");
@@ -73,25 +75,36 @@ public class ClassBox {
             
             t1.setX(startX);
             t1.setY(startY + 12);
+            t1.setWrappingWidth(200);
             t1.setVisible(true);
             t2.setX(startX);
             t2.setY(startY + (1.0/3.0) * height + 12);
+            t2.setWrappingWidth(200);
             t2.setVisible(true);
             t3.setX(startX);
             t3.setY(startY + (2.0/3.0) * height + 12);
+            t3.setWrappingWidth(200);
             t3.setVisible(true);
             
-            for (double i=0; i < 4.0; i++){
+            for (int i=0; i < 4.0; i++){
     			anchorPoints.add(new Rectangle(startX+(i/4.0)*width-5, startY-5, 10, 10));
+    			anchorPoints.get(i).setFill(Color.WHITE);
+    			anchorPoints.get(i).setStroke(Color.BLACK);
     		}
-    		for (double i=0; i < 4.0; i++){
+    		for (int i=0; i < 4.0; i++){
     			anchorPoints.add(new Rectangle(startX+width-5, startY+(i/4.0)*height-5, 10, 10));
+    			anchorPoints.get(i+4).setFill(Color.WHITE);
+    			anchorPoints.get(i+4).setStroke(Color.BLACK);
     		}
-    		for (double i=0; i < 4.0; i++){
+    		for (int i=0; i < 4.0; i++){
     			anchorPoints.add(new Rectangle(startX+width-(i/4.0)*width-5, startY+height-5, 10, 10));
+    			anchorPoints.get(i+8).setFill(Color.WHITE);
+    			anchorPoints.get(i+8).setStroke(Color.BLACK);
     		}
-    		for (double i=0; i < 4.0; i++){
+    		for (int i=0; i < 4.0; i++){
     			anchorPoints.add(new Rectangle(startX+-5, startY+height-(i/4.0)*height-5, 10, 10));
+    			anchorPoints.get(i+12).setFill(Color.WHITE);
+    			anchorPoints.get(i+12).setStroke(Color.BLACK);
     		}
     		
     		for (int i=0; i<anchorPoints.size();i++){
@@ -162,12 +175,15 @@ public class ClassBox {
         
         	t1.setX(startX);
         	t1.setY(startY + 12);
+        	t1.setWrappingWidth(200);
         	t1.setVisible(true);
         	t2.setX(startX);
         	t2.setY(startY + (1.0/3.0) * height + 12);
+        	t2.setWrappingWidth(200);
         	t2.setVisible(true);
         	t3.setX(startX);
         	t3.setY(startY + ((2.0/3.0) * height) + 12);
+        	t3.setWrappingWidth(200);
         	t3.setVisible(true);
         
         	for (int i=0; i < inboundLines.size(); i++){
@@ -226,6 +242,18 @@ public class ClassBox {
 	*/
 	public double getWidth(){
 		return width;
+	}
+	
+	/**
+	 * @return Array list of the text in t1, t2, and t3
+	 */
+	public ArrayList<String> getText(){
+		ArrayList<String> myText = new ArrayList<String>(3);
+		myText.add(t1.getText());
+		myText.add(t2.getText());
+		myText.add(t3.getText());
+		
+		return myText;
 	}
 	
 	/**
