@@ -71,6 +71,7 @@ public class TextEditor {
 			@Override
 			public void handle(ActionEvent event) {
 				resetText(nameField.getText(), attField.getText(), opField.getText());
+				closeWindow();
 			}
 		});
 

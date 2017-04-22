@@ -24,8 +24,8 @@ public class LineEditor {
 	Scene textScene = new Scene(grid, 400, 375);
 	
 	MyLine line;
-	String arrowType;
-	String lineFont;
+	String arrowType = "lined";
+	String lineFont = "dotted";
 	
 	
 	/**
@@ -137,6 +137,7 @@ public class LineEditor {
 			@Override
 			public void handle(ActionEvent event) {
 				line.setPreferences(arrowType, lineFont, labelField.getText());
+				closeWindow();
 			}
 		});
 

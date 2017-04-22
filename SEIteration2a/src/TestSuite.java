@@ -160,7 +160,8 @@ public class TestSuite {
 	@Test
 	public void checkLineChangeStart() {
 		System.out.println("Check that the start of a line changes position correctly");
-		MyLine newline = new MyLine(0, 0, 1, 1);
+		DrawGraphical dg = new DrawGraphical(null);
+		MyLine newline = new MyLine(0, 0, 1, 1, dg);
 		
 		Platform.runLater(new Runnable() {
 	        @Override
@@ -187,7 +188,8 @@ public class TestSuite {
 	@Test
 	public void checkLineChangeEnd() {
 		System.out.println("Check that the end of a line changes position correctly");
-		MyLine newline = new MyLine(0, 0, 1, 1);
+		DrawGraphical dg = new DrawGraphical(null);
+		MyLine newline = new MyLine(0, 0, 1, 1, dg);
 		
 		Platform.runLater(new Runnable() {
 	        @Override

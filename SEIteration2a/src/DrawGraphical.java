@@ -88,7 +88,6 @@ public class DrawGraphical {
 			public void handle(MouseEvent mouseEvent) {
 				if (mouseEvent.getClickCount() == 2) {
 					// Create a new text editor
-					te.closeWindow();
 					TextEditor teNew = new TextEditor(newbox);
 					newbox.setEditor(teNew);
 					te.createEditor();
@@ -179,21 +178,25 @@ public class DrawGraphical {
 		MyLine newline = new MyLine(source.toSend.getX() + (source.toSend.getWidth()/2), 
 				source.toSend.getY() + (source.toSend.getHeight()/2), 
 				destination.toSend.getX() + (destination.toSend.getWidth()/2), 
-				destination.toSend.getY() + (destination.toSend.getHeight()/2));
+				destination.toSend.getY() + (destination.toSend.getHeight()/2), this);
 		
 		source.outboundLines.add(newline);
 		destination.inboundLines.add(newline);
-		
-		LineEditor lineed = new LineEditor(newline);
-		lineed.createEditor();
-
-		box.getChildren().add(newline.line);
 		
 		source.toSend = null;
 		destination.toSend = null;
 		source = null;
 		destination = null;
 
+		
+		LineEditor lineed = new LineEditor(newline);
+		lineed.createEditor();
+	}
+	
+	public void drawMyLine(MyLine newline){
+
+		box.getChildren().add(newline.line);
+		box.getChildren().add(newline.arrowHead);
 	}
 	
 	/**

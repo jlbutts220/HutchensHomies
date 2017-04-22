@@ -65,6 +65,7 @@ public class ClassBox {
             
             startX = 100;
             startY = 100;
+            double wrapWidth = width*.8;
             
             baseRec = new Rectangle(startX, startY, width, height);
             baseRec.setFill(Color.WHITE);
@@ -75,15 +76,15 @@ public class ClassBox {
             
             t1.setX(startX);
             t1.setY(startY + 12);
-            t1.setWrappingWidth(200);
+            t1.setWrappingWidth(wrapWidth);
             t1.setVisible(true);
             t2.setX(startX);
             t2.setY(startY + (1.0/3.0) * height + 12);
-            t2.setWrappingWidth(200);
+            t2.setWrappingWidth(wrapWidth);
             t2.setVisible(true);
             t3.setX(startX);
             t3.setY(startY + (2.0/3.0) * height + 12);
-            t3.setWrappingWidth(200);
+            t3.setWrappingWidth(wrapWidth);
             t3.setVisible(true);
             
             for (int i=0; i < 4.0; i++){
@@ -155,6 +156,8 @@ public class ClassBox {
 	public void redraw(double x, double y){
 		startX+=x;
 		startY+=y;
+		
+		double wrapWidth = width*0.8;
 		        
         	//baseRec = new Rectangle(startX, startY, width, 3*height);
         	baseRec.setX(startX);
@@ -175,15 +178,15 @@ public class ClassBox {
         
         	t1.setX(startX);
         	t1.setY(startY + 12);
-        	t1.setWrappingWidth(200);
+        	t1.setWrappingWidth(wrapWidth);
         	t1.setVisible(true);
         	t2.setX(startX);
         	t2.setY(startY + (1.0/3.0) * height + 12);
-        	t2.setWrappingWidth(200);
+        	t2.setWrappingWidth(wrapWidth);
         	t2.setVisible(true);
         	t3.setX(startX);
         	t3.setY(startY + ((2.0/3.0) * height) + 12);
-        	t3.setWrappingWidth(200);
+        	t3.setWrappingWidth(wrapWidth);
         	t3.setVisible(true);
         
         	for (int i=0; i < inboundLines.size(); i++){
