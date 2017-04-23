@@ -197,6 +197,12 @@ public class DrawGraphical {
 
 		box.getChildren().add(newline.line);
 		box.getChildren().add(newline.arrowHead);
+		box.getChildren().add(newline.labelBack);
+		box.getChildren().add(newline.label);
+		box.getChildren().add(newline.scardBack);
+		box.getChildren().add(newline.sCard);
+		box.getChildren().add(newline.dcardBack);
+		box.getChildren().add(newline.dCard);
 	}
 	
 	/**

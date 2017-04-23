@@ -51,22 +51,6 @@ public class LineEditor {
 		Label name = new Label("Select Line Type:");
 		grid.add(name, 0, 0);
 		
-		/*
-		CheckBox depend = new CheckBox("Dependence");
-		grid.add(depend, 1, 1);
-		
-		CheckBox assoc = new CheckBox("Association");
-		grid.add(assoc, 1, 2);
-		
-		CheckBox aggr = new CheckBox("Aggregation");
-		grid.add(aggr, 1, 3);
-		
-		CheckBox comp = new CheckBox("Composition");
-		grid.add(comp, 1, 4);
-		
-		CheckBox gener = new CheckBox("Generalization");
-		grid.add(gener, 1, 5);
-		*/
 		
 		Button depend = new Button("Dependence");
 		grid.add(depend, 1, 1);
@@ -128,15 +112,27 @@ public class LineEditor {
 		
 		TextField labelField = new TextField("");
 		grid.add(labelField, 1, 7);
+		
+		Label addSC = new Label("Add Source Cardinality:");
+		grid.add(addSC, 0, 8);
+		
+		TextField srcCard = new TextField("");
+		grid.add(srcCard, 1, 8);
+		
+		Label addDC = new Label("Add Destination Cardinality:");
+		grid.add(addDC, 0, 9);
+		
+		TextField destCard = new TextField("");
+		grid.add(destCard, 1, 9);
 
 		Button submit = new Button("Submit");
-		grid.add(submit, 1, 9);
+		grid.add(submit, 1, 10);
 
 		submit.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-				line.setPreferences(arrowType, lineFont, labelField.getText());
+				line.setPreferences(arrowType, lineFont, labelField.getText(), srcCard.getText(), destCard.getText());
 				closeWindow();
 			}
 		});

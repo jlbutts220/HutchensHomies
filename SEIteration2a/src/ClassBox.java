@@ -74,16 +74,16 @@ public class ClassBox {
             sep1 = new Line(startX, startY+(1.0/3.0)*height, startX+width, startY+(1.0/3.0)*height);
             sep2 = new Line(startX, startY+(2.0/3.0)*height, startX+width, startY+(2.0/3.0)*height);
             
-            t1.setX(startX);
-            t1.setY(startY + 12);
+            t1.setX(startX + 2);
+            t1.setY(startY + 14);
             t1.setWrappingWidth(wrapWidth);
             t1.setVisible(true);
-            t2.setX(startX);
-            t2.setY(startY + (1.0/3.0) * height + 12);
+            t2.setX(startX +2);
+            t2.setY(startY + (1.0/3.0) * height + 14);
             t2.setWrappingWidth(wrapWidth);
             t2.setVisible(true);
-            t3.setX(startX);
-            t3.setY(startY + (2.0/3.0) * height + 12);
+            t3.setX(startX +2);
+            t3.setY(startY + (2.0/3.0) * height + 14);
             t3.setWrappingWidth(wrapWidth);
             t3.setVisible(true);
             
@@ -176,16 +176,16 @@ public class ClassBox {
         	sep2.setEndX(startX + width);
         	sep2.setEndY(startY + (2.0/3.0) * height);
         
-        	t1.setX(startX);
-        	t1.setY(startY + 12);
+        	t1.setX(startX +2);
+        	t1.setY(startY + 14);
         	t1.setWrappingWidth(wrapWidth);
         	t1.setVisible(true);
-        	t2.setX(startX);
-        	t2.setY(startY + (1.0/3.0) * height + 12);
+        	t2.setX(startX +2);
+        	t2.setY(startY + (1.0/3.0) * height + 14);
         	t2.setWrappingWidth(wrapWidth);
         	t2.setVisible(true);
-        	t3.setX(startX);
-        	t3.setY(startY + ((2.0/3.0) * height) + 12);
+        	t3.setX(startX +2);
+        	t3.setY(startY + ((2.0/3.0) * height) + 14);
         	t3.setWrappingWidth(wrapWidth);
         	t3.setVisible(true);
         
