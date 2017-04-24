@@ -11,6 +11,7 @@
  * @author Matt Hahn, Matt Rumpf, Jess Butts, Mike Dwyer, Jamie Thorpe
  */
 
+import java.awt.TextArea;
 import java.util.ArrayList;
 
 import javafx.event.EventHandler;
@@ -18,7 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 
 public class ClassBox {
    
@@ -39,6 +40,7 @@ public class ClassBox {
 	Rectangle baseRec;
     	Line sep1;
     	Line sep2;
+    	
 	Text t1 = new Text("a");
 	Text t2 = new Text("b");
 	Text t3 = new Text("c");
@@ -63,6 +65,7 @@ public class ClassBox {
             
             startX = 100;
             startY = 100;
+            double wrapWidth = width*.8;
             
             baseRec = new Rectangle(startX, startY, width, height);
             baseRec.setFill(Color.WHITE);
@@ -71,27 +74,38 @@ public class ClassBox {
             sep1 = new Line(startX, startY+(1.0/3.0)*height, startX+width, startY+(1.0/3.0)*height);
             sep2 = new Line(startX, startY+(2.0/3.0)*height, startX+width, startY+(2.0/3.0)*height);
             
-            t1.setX(startX);
-            t1.setY(startY + 12);
+            t1.setX(startX + 2);
+            t1.setY(startY + 14);
+            t1.setWrappingWidth(wrapWidth);
             t1.setVisible(true);
-            t2.setX(startX);
-            t2.setY(startY + (1.0/3.0) * height + 12);
+            t2.setX(startX +2);
+            t2.setY(startY + (1.0/3.0) * height + 14);
+            t2.setWrappingWidth(wrapWidth);
             t2.setVisible(true);
-            t3.setX(startX);
-            t3.setY(startY + (2.0/3.0) * height + 12);
+            t3.setX(startX +2);
+            t3.setY(startY + (2.0/3.0) * height + 14);
+            t3.setWrappingWidth(wrapWidth);
             t3.setVisible(true);
             
-            for (double i=0; i < 4.0; i++){
+            for (int i=0; i < 4.0; i++){
     			anchorPoints.add(new Rectangle(startX+(i/4.0)*width-5, startY-5, 10, 10));
+    			anchorPoints.get(i).setFill(Color.WHITE);
+    			anchorPoints.get(i).setStroke(Color.BLACK);
     		}
-    		for (double i=0; i < 4.0; i++){
+    		for (int i=0; i < 4.0; i++){
     			anchorPoints.add(new Rectangle(startX+width-5, startY+(i/4.0)*height-5, 10, 10));
+    			anchorPoints.get(i+4).setFill(Color.WHITE);
+    			anchorPoints.get(i+4).setStroke(Color.BLACK);
     		}
-    		for (double i=0; i < 4.0; i++){
+    		for (int i=0; i < 4.0; i++){
     			anchorPoints.add(new Rectangle(startX+width-(i/4.0)*width-5, startY+height-5, 10, 10));
+    			anchorPoints.get(i+8).setFill(Color.WHITE);
+    			anchorPoints.get(i+8).setStroke(Color.BLACK);
     		}
-    		for (double i=0; i < 4.0; i++){
+    		for (int i=0; i < 4.0; i++){
     			anchorPoints.add(new Rectangle(startX+-5, startY+height-(i/4.0)*height-5, 10, 10));
+    			anchorPoints.get(i+12).setFill(Color.WHITE);
+    			anchorPoints.get(i+12).setStroke(Color.BLACK);
     		}
     		
     		for (int i=0; i<anchorPoints.size();i++){
@@ -142,6 +156,8 @@ public class ClassBox {
 	public void redraw(double x, double y){
 		startX+=x;
 		startY+=y;
+		
+		double wrapWidth = width*0.8;
 		        
         	//baseRec = new Rectangle(startX, startY, width, 3*height);
         	baseRec.setX(startX);
@@ -160,14 +176,17 @@ public class ClassBox {
         	sep2.setEndX(startX + width);
         	sep2.setEndY(startY + (2.0/3.0) * height);
         
-        	t1.setX(startX);
-        	t1.setY(startY + 12);
+        	t1.setX(startX +2);
+        	t1.setY(startY + 14);
+        	t1.setWrappingWidth(wrapWidth);
         	t1.setVisible(true);
-        	t2.setX(startX);
-        	t2.setY(startY + (1.0/3.0) * height + 12);
+        	t2.setX(startX +2);
+        	t2.setY(startY + (1.0/3.0) * height + 14);
+        	t2.setWrappingWidth(wrapWidth);
         	t2.setVisible(true);
-        	t3.setX(startX);
-        	t3.setY(startY + ((2.0/3.0) * height) + 12);
+        	t3.setX(startX +2);
+        	t3.setY(startY + ((2.0/3.0) * height) + 14);
+        	t3.setWrappingWidth(wrapWidth);
         	t3.setVisible(true);
         
         	for (int i=0; i < inboundLines.size(); i++){
@@ -226,6 +245,18 @@ public class ClassBox {
 	*/
 	public double getWidth(){
 		return width;
+	}
+	
+	/**
+	 * @return Array list of the text in t1, t2, and t3
+	 */
+	public ArrayList<String> getText(){
+		ArrayList<String> myText = new ArrayList<String>(3);
+		myText.add(t1.getText());
+		myText.add(t2.getText());
+		myText.add(t3.getText());
+		
+		return myText;
 	}
 	
 	/**
